@@ -14,6 +14,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-homasy-homasyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-homasy-homasyTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B163E33F70954590A7C09728 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC61CC2BACBB4D2A934B4DED /* Caveat-VariableFont_wght.ttf */; };
+		F454A35586564DDA915054C2 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7247DDD71279432A83C511F4 /* DancingScript-Bold.ttf */; };
+		E1C8C786F146485EB5223A22 /* DancingScript-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE71755311F24271BA09E24E /* DancingScript-Medium.ttf */; };
+		CD7FA099A7AC49E2BFA3C6F1 /* DancingScriptRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A878FE432AA948F6A45FCC25 /* DancingScriptRegular.ttf */; };
+		A6179568EBAB45749FCEF30F /* DancingScriptSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9B596B297974346BB8FB6C1 /* DancingScriptSemiBold.ttf */; };
+		B8D6EC077E3942BDBD4AA8A1 /* SatisfyRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB3CE174C753403EB301E63A /* SatisfyRegular.ttf */; };
+		6B345A2BC71543BD8AFC28DE /* futura.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20F3FF9A6ACA4A9E9B44E79B /* futura.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = homasy/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-homasy-homasyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homasy-homasyTests.release.xcconfig"; path = "Target Support Files/Pods-homasy-homasyTests/Pods-homasy-homasyTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FC61CC2BACBB4D2A934B4DED /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Caveat-VariableFont_wght.ttf"; path = "../assets/fonts/Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7247DDD71279432A83C511F4 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; name = "DancingScript-Bold.ttf"; path = "../assets/fonts/DancingScript-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE71755311F24271BA09E24E /* DancingScript-Medium.ttf */ = {isa = PBXFileReference; name = "DancingScript-Medium.ttf"; path = "../assets/fonts/DancingScript-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A878FE432AA948F6A45FCC25 /* DancingScriptRegular.ttf */ = {isa = PBXFileReference; name = "DancingScriptRegular.ttf"; path = "../assets/fonts/DancingScriptRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B9B596B297974346BB8FB6C1 /* DancingScriptSemiBold.ttf */ = {isa = PBXFileReference; name = "DancingScriptSemiBold.ttf"; path = "../assets/fonts/DancingScriptSemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BB3CE174C753403EB301E63A /* SatisfyRegular.ttf */ = {isa = PBXFileReference; name = "SatisfyRegular.ttf"; path = "../assets/fonts/SatisfyRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		20F3FF9A6ACA4A9E9B44E79B /* futura.ttf */ = {isa = PBXFileReference; name = "futura.ttf"; path = "../assets/fonts/futura.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				730B98258E954ACABD3E3E39 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +162,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		730B98258E954ACABD3E3E39 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				FC61CC2BACBB4D2A934B4DED /* Caveat-VariableFont_wght.ttf */,
+				7247DDD71279432A83C511F4 /* DancingScript-Bold.ttf */,
+				BE71755311F24271BA09E24E /* DancingScript-Medium.ttf */,
+				A878FE432AA948F6A45FCC25 /* DancingScriptRegular.ttf */,
+				B9B596B297974346BB8FB6C1 /* DancingScriptSemiBold.ttf */,
+				BB3CE174C753403EB301E63A /* SatisfyRegular.ttf */,
+				20F3FF9A6ACA4A9E9B44E79B /* futura.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -243,6 +273,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B163E33F70954590A7C09728 /* Caveat-VariableFont_wght.ttf in Resources */,
+				F454A35586564DDA915054C2 /* DancingScript-Bold.ttf in Resources */,
+				E1C8C786F146485EB5223A22 /* DancingScript-Medium.ttf in Resources */,
+				CD7FA099A7AC49E2BFA3C6F1 /* DancingScriptRegular.ttf in Resources */,
+				A6179568EBAB45749FCEF30F /* DancingScriptSemiBold.ttf in Resources */,
+				B8D6EC077E3942BDBD4AA8A1 /* SatisfyRegular.ttf in Resources */,
+				6B345A2BC71543BD8AFC28DE /* futura.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

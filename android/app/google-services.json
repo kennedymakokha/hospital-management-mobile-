@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "386394413511",
+    "project_id": "homasy-dc077",
+    "storage_bucket": "homasy-dc077.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386394413511:android:07f18f756a6728f81121e2",
+        "android_client_info": {
+          "package_name": "com.homasy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaslQm-aXgMnLSHJjKC6n-b1_bAno-XsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
