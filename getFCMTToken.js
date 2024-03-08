@@ -1,4 +1,5 @@
 import messaging from '@react-native-firebase/messaging';
+import { storeData } from './src/utils/AsyncStorageMethods';
 let token;
 const requestUserPermission = async () => {
     const authStatus = await messaging().requestPermission();
@@ -14,7 +15,7 @@ const requestUserPermission = async () => {
 const getNewFCMToken = async () => {
     try {
         await requestUserPermission();
-        console.log('Token:', token);
+        // storeData('FCMToken', token);
 
     } catch (error) {
         console.error('Error getting new FCM token:', error);

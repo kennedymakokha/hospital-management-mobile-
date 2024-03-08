@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, SafeAreaView, StyleSheet, Image } from 'react-native'
 import Inputcontainer from './containers/inputcontainer'
 import Logo from "./imeges/logo.png";
 import CheckBox from '@react-native-community/checkbox';
 import Button from './containers/Button';
-
+import { useDispatch } from 'react-redux';
+import { useLoginMutation } from '../feaures/slices/userApiSlice';
+import { setCredentials } from '../feaures/slices/authSlice';
+import Popup from './containers/Modal'
+import { getData } from './utils/AsyncStorageMethods';
 const Login = ({ navigation }) => {
+    const dispatch = useDispatch()
     const [isSelected, setSelection] = React.useState(true);
-    const [item, onChangeText] = React.useState({ email: '', password: 'Test' });
+    const [login, { isLoading }] = useLoginMutation();
 
+    const [item, onChangeText] = React.useState({ ID_no: '', password: 'Test', token: getData("FCMToken") });
 
+    const submit = async () => {
+        const { ID_no, password } = item
+        try {
+            const res = await login({ ID_no, password }).unwrap();
+
+            dispatch(setCredentials({ ...res }))
+
+            navigation.navigate("Dashboard")
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <SafeAreaView className="flex h-screen w-screen  bg-primary-100">
             <View className="w-full h-1/4 flex items-center justify-center bg-primary-100">
@@ -20,8 +39,12 @@ const Login = ({ navigation }) => {
                     <Text className="text-primary-100 text-5xl  font-bold">Medicare</Text>
                     <Text className="text-slate-500 text-xl ">Your Wellness, Our Priority </Text>
                 </View>
-                <Inputcontainer onChange={onChangeText} label="Email" value={item.email} placeholder="example@medicare.com" type="text" />
-                <Inputcontainer onChange={onChangeText} label="Password" value={item.password} placeholder="password" secure type="password" />
+                <Inputcontainer type="number-pad" onChange={(e) => onChangeText(prevState => ({
+                    ...prevState, ID_no: e
+                }))} label="Identification No" value={item.ID_no} placeholder="3254984644" />
+                <Inputcontainer onChange={(e) => onChangeText(prevState => ({
+                    ...prevState, password: e
+                }))} label="Password" value={item.password} placeholder="password" secure type="default" />
                 <View className="flex  flex-row  items-between justify-between">
                     <View className="flex flex-row items-center justify-center">
                         <CheckBox
@@ -37,9 +60,28 @@ const Login = ({ navigation }) => {
                     </View>
 
                 </View>
-                <View className="mt-20 "><Button onClick={() => navigation.navigate("Dashboard")} title="Log In" /></View>
+                <View className="mt-20 "><Button onClick={() => submit()} title="Log In" /></View>
             </View>
-        </SafeAreaView>
+
+            <Popup
+                visible={isLoading}
+                transparent={true}
+                // dismiss={closePopup}
+                margin={"25%"}
+            >
+                <View
+                    style={{
+                        flex: 1,
+                        backgroundColor: '#fff',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginTop: 150, height: '10px', width: '19px'
+                    }}
+                >
+                    <View className="px-3 py-2 h-10 w-28 rounded-md bg-slate-100 items-center justify-center spin"><Text className="text-slate-600 font-bold">Submting ...</Text></View>
+                </View>
+            </Popup>
+        </SafeAreaView >
     )
 }
 const styles = StyleSheet.create({

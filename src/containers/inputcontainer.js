@@ -18,7 +18,7 @@ const inputcontainer = (props) => {
                         placeholder={props.placeholder}
                         placeholderTextColor="gray"
                         secureTextEntry={props.secure}
-                    // keyboardType={props.type}
+                        keyboardType={props.type}
                     />
                     {/* {props.secure && < Text className="text-black" > Secure</Text>} */}
                 </View>

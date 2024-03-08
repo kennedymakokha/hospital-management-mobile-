@@ -22,9 +22,13 @@ import messaging from '@react-native-firebase/messaging';
 import { store } from './store'
 import { Provider } from 'react-redux'
 import getNewFCMToken from './getFCMTToken';
+// import { getData } from './src/utils/AsyncStorageMethods';
+import { useGetuserQuery,  } from './feaures/slices/userApiSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getData, storeData } from './src/utils/AsyncStorageMethods';
 
-function App() {
-
+function App({}) {
+// const { data: user, isFetching, refetch } = useGetuserQuery()
   async function requestUserPermission() {
     const authStatus = await messaging().requestPermission();
     const enabled =
@@ -34,19 +38,23 @@ function App() {
       console.log('Authorization status:', authStatus);
     }
   }
+  
 
+ 
   useEffect(() => {
+   
+
     getNewFCMToken();
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('A new FCM message arrived!', JSON.stringify(remoteMessage));
     }); return unsubscribe;
   }, []);
   return (
-    // <Provider store={store}>
-    <NavigationContainer>
-      <DashboardStack />
-    </NavigationContainer>
-    // </Provider>
+    <Provider store={store}>
+      <NavigationContainer>
+        <DashboardStack />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

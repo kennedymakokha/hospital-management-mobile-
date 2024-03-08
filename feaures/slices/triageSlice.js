@@ -13,4 +13,4 @@ export const triageApiSlice = apiSlice.injectEndpoints({
     })
 })
 
-export const { useCreateTriageMutation,useGetAllTriageByPatientQuery, useDeleteTriageMutation, useFetchTriageQuery, useGetTriageByPatientQuery, useUpdateTriageMutation } = triageApiSlice
+export const {useGetTriageByPatientQuery  } = triageApiSlice

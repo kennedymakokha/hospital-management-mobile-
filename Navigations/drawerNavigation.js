@@ -13,9 +13,10 @@ export function DashDrawer() {
                     {
                         title: '',
                         headerStyle: {
-                            backgroundColor: 'transparent',
+                            backgroundColor: '#4c669f',
                             elevation:0
                         },
+                        drawerIcon:{}
                         // headerShown: false
                     }
                 } component={Dashboard} />
@@ -23,3 +24,4 @@ export function DashDrawer() {
         </Drawer.Navigator>
     );
 }
+

@@ -12,6 +12,7 @@ import Popup from './containers/Modal'
 import { TextInput } from 'react-native-gesture-handler';
 import Search from './containers/search';
 import { debounce } from './utils/debounce';
+import { useGetusersQuery } from '../feaures/slices/userApiSlice';
 const Doctors = ({ navigation }) => {
     const [doctors, setDoctors] = useState([{ title: 'dentist', image: '', rate: 4, name: "Moris Wambilianga", color: 'green', icon: '' },
     { rate: 5, name: 'Moses Gitaru', title: "dentist", color: 'green', icon: '' },
@@ -22,31 +23,20 @@ const Doctors = ({ navigation }) => {
     const openPopup = () => {
         setVisible(true);
     }
-
-    const handleSearch = (e) => {
-        let v = doctors.filter((el) => el.name === e)
-        let w = doctors?.filter(word => word.name === e)
-        console.log(v, w)
-        // setDoctors((el) => el?.name?.toLowerCase() === e)
-
-    }
-
+    const { data, isFetching, refetch } = useGetusersQuery("Dr")
+  
 
     useEffect(() => {
 
     })
-
-    console.log(doctors)
     return (
         <ScrollView className="bg-slate-100 px-5">
-
 
             <View className=" w-full my-5   flex items-between px-2 flex-row ">
                 <Search placeholder="Type doctors name" onChange={e => handleSearch(e)} />
             </View>
-
             <View className="flex ">
-                {doctors.map((doc, i) => (
+                {data?.map((doc, i) => (
                     <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('doctor')} key={i} className=" w-full  p-2">
                         <View className=" w-full bg-white shadow-xl py-2  px-2 rounded-lg bg-slate-50 ">
                             <View className="flex flex-row p-2">

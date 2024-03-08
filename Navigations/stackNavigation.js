@@ -25,7 +25,8 @@ export function DashboardStack() {
             <Stack.Screen name="Dashboard" component={DashDrawer}
                 options={
                     {
-                        headerShown: false
+                        headerShown: false,
+                        
                     }
                 } />
             <Stack.Screen name="Doctors" component={Doctors}

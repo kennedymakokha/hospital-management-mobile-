@@ -1,11 +1,17 @@
-import { View, Text, Image } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Image, } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Button from './containers/Button'
 import Splash1 from './imeges/splash1.png'
 import Splash2 from './imeges/splash2.png'
 import Splash3 from './imeges/splash3.png'
+import { useDispatch, useSelector } from 'react-redux'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { getData, getObjData } from './utils/AsyncStorageMethods'
+import { useGetuserQuery, useGetusersQuery } from '../feaures/slices/userApiSlice'
+import { setCredentials } from '../feaures/slices/authSlice'
 
-const Splash = ({navigation}) => {
+const Splash = ({ navigation }) => {
+    const dispatch = useDispatch()
     const [items, setItems] = useState([
         { state: true, icon: Splash1, title: "Skilled Health care close to home" },
         { state: false, icon: Splash2, title: "Best Doctor patient" },
@@ -20,7 +26,7 @@ const Splash = ({navigation}) => {
                     items[index + 1].state = true
                     setactive(index + 1)
                 }
-                else if(items.findIndex(x => x.state === true) === items.length - 1){
+                else if (items.findIndex(x => x.state === true) === items.length - 1) {
                     navigation.navigate("Login")
                 }
 
@@ -45,6 +51,24 @@ const Splash = ({navigation}) => {
             console.log(error)
         }
     }
+    const { userInfo } = useSelector((state) => state.auth)
+    const { data, isFetching, refetch } = useGetuserQuery()
+    
+    const getAuth = async () => {
+        try {
+            let token = await getData("token")
+            if (token) {
+                dispatch(setCredentials({ ...data }))
+                navigation.navigate("Dashboard")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        getAuth()
+    }, [data])
+
     return (
         <View className="flex h-screen w-screen bg-white flex-col items-center justify-center">
             <View style={{ height: 350 }} className="flex-col items-center justify-center">
@@ -63,8 +87,8 @@ const Splash = ({navigation}) => {
             </View>
             <View className="flex  w-full gap-y-2 items-center justify-center flex-col">
                 <View className=" w-3/4">
-                    <Button onClick={next} 
-                    primary white title={items.findIndex(x => x.state === true) === items.length - 1 ? "Get Started" : "Next"} />
+                    <Button onClick={next}
+                        primary white title={items.findIndex(x => x.state === true) === items.length - 1 ? "Get Started" : "Next"} />
                 </View>
 
                 <View className=" w-3/4">
